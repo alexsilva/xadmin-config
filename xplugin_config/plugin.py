@@ -2,6 +2,7 @@
 from django.template.loader import render_to_string
 from xadmin.plugins.utils import get_context_dict
 from xadmin.views import BaseAdminPlugin
+from django import forms
 
 
 class ConfigPlugin(BaseAdminPlugin):
@@ -16,3 +17,9 @@ class ConfigPlugin(BaseAdminPlugin):
         context = get_context_dict(context)
         nodes.append(render_to_string("xplugin_config/blocks/comm.top.config.html",
                                       context=context))
+
+    def get_media(self, media):
+        media += forms.Media(js=(
+            'xplugin_config/js/modal_config.js',
+        ))
+        return media
