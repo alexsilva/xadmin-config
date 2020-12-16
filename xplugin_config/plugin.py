@@ -1,8 +1,8 @@
 # coding: utf-8
+from django import forms
 from django.template.loader import render_to_string
 from xadmin.plugins.utils import get_context_dict
 from xadmin.views import BaseAdminPlugin
-from django import forms
 
 
 class ConfigPlugin(BaseAdminPlugin):
@@ -16,6 +16,11 @@ class ConfigPlugin(BaseAdminPlugin):
         """toobar"""
         context = get_context_dict(context)
         nodes.append(render_to_string("xplugin_config/blocks/comm.top.config.html",
+                                      context=context))
+
+    def block_extrabody(self, context, nodes):
+        context = get_context_dict(context)
+        nodes.append(render_to_string("xplugin_config/includes/config.html",
                                       context=context))
 
     def get_media(self, media):
