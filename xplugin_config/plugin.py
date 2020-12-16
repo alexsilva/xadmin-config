@@ -18,6 +18,10 @@ class ConfigPlugin(BaseAdminPlugin):
         nodes.append(render_to_string("xplugin_config/blocks/comm.top.config.html",
                                       context=context))
 
+    def get_context(self, context):
+        context['config_modal_title'] = "Configuration"
+        return context
+
     def block_extrabody(self, context, nodes):
         context = get_context_dict(context)
         nodes.append(render_to_string("xplugin_config/includes/config.html",
