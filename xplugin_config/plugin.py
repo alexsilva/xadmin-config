@@ -49,7 +49,7 @@ class ConfigPlugin(BaseAdminPlugin):
         av.storage = Storage(self.component_store,
                              self.request)
 
-    def block_top_toolbar(self, context, nodes):
+    def block_top_layout_btns(self, context, nodes):
         """toobar"""
         context = get_context_dict(context)
         nodes.append(render_to_string("xplugin_config/blocks/comm.top.config.html",
