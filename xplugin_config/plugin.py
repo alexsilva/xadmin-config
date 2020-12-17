@@ -59,6 +59,8 @@ class ConfigPlugin(BaseAdminPlugin):
         context['config_modal_title'] = "Configuration"
         return context
 
+    get_context.priority = 100
+
     def block_extrabody(self, context, nodes):
         context = get_context_dict(context)
         nodes.append(render_to_string("xplugin_config/includes/config.html",
@@ -70,3 +72,5 @@ class ConfigPlugin(BaseAdminPlugin):
             'xplugin_config/js/modal_config.js',
         ))
         return media
+
+    get_media.priority = 100
