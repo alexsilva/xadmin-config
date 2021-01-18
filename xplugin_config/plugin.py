@@ -56,7 +56,10 @@ class ConfigPlugin(BaseAdminPlugin):
                                       context=context))
 
     def get_context(self, context):
-        context['config_modal_title'] = "Configuration"
+        context['config_modal'] = {
+            'title': "Configuration",
+            'component_store': self.component_store
+        }
         return context
 
     get_context.priority = 100
