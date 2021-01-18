@@ -58,7 +58,7 @@ class ConfigPlugin(BaseAdminPlugin):
     def get_context(self, context):
         context['config_modal'] = {
             'title': "Configuration",
-            'component_store': self.component_store
+            'storage': self.admin_view.storage
         }
         return context
 
