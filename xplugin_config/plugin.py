@@ -55,8 +55,11 @@ class ConfigPlugin(BaseAdminPlugin):
         nodes.append(render_to_string("xplugin_config/blocks/comm.top.config.html",
                                       context=context))
 
+    block_top_toolbar.priority = 0
+
     def get_context(self, context):
         context['config_modal'] = {
+            'button_text': "Configuration",
             'title': "Configuration",
             'storage': self.admin_view.storage
         }
