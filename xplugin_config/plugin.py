@@ -38,12 +38,9 @@ class ConfigPlugin(BaseAdminPlugin):
     __order__ = 50
 
     def init_request(self, *args, **kwargs):
-        is_active = isinstance(self.component_store, str)
-        if is_active:
-            self._init()
-        return is_active
+        return isinstance(self.component_store, str)
 
-    def _init(self):
+    def setup(self, *args, **kwargs):
         av = self.admin_view
         # armazenamento da view
         av.storage = Storage(self.component_store,
