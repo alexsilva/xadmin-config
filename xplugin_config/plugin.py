@@ -35,7 +35,7 @@ class Storage:
 class ConfigPlugin(BaseAdminPlugin):
     """Configuration plugin for other plugins"""
     component_store = None
-    order = 50
+    __order__ = 50
 
     def init_request(self, *args, **kwargs):
         is_active = isinstance(self.component_store, str)
