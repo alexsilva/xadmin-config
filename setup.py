@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='xadmin-config',
-    version='1.0',
+    version='1.1.0',
     packages=['xplugin_config'],
     url='https://github.com/alexsilva/xadmin-config',
     license='MIT',
